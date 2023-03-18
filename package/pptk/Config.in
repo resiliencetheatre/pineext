@@ -1,0 +1,5 @@
+config BR2_PACKAGE_PPTK
+	bool "PPTK"
+	help
+	  PinePhone Toolkit (PPTK)
+

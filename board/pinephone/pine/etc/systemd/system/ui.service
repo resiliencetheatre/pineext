@@ -1,0 +1,16 @@
+[Unit]
+Description=user interface
+After=multi-user.target vault-pin.service vault.service
+
+[Service]
+WorkingDirectory=/tmp
+KillMode=process
+ExecStartPre=/bin/cpupower -c all frequency-set -g ondemand
+ExecStartPre=mkfifo /tmp/tx-key-presentage /tmp/rx-key-presentage
+ExecStart=/bin/qml-july-02
+Restart=always
+RestartSec=1
+TimeoutStartSec=5
+
+[Install]
+WantedBy=multi-user.target

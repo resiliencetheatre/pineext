@@ -1,0 +1,8 @@
+[Unit]
+Description=audiovolume internal earpiece and microphone
+After=multi-user.target
+
+[Service]
+Type=simple
+WorkingDirectory=/tmp
+ExecStart=/sbin/alsactl -U -f /etc/intspeaker.conf restore

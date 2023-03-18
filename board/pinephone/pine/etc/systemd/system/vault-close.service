@@ -1,0 +1,17 @@
+[Unit]
+Description=Vault close
+Requires=network.target
+After=network.target
+Before=shutdown.target
+DefaultDependencies=no
+
+[Service]
+ExecStartPre=umount /tmp/vault
+ExecStart=/sbin/cryptsetup luksClose volume1
+ExecStartPost=rmdir /tmp/vault
+Type=oneshot
+RemainAfterExit=yes
+
+[Install]
+WantedBy=shutdown.target
+

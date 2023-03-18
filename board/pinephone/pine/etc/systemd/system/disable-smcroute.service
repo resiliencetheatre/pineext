@@ -1,0 +1,13 @@
+[Unit]
+Description=disable smcroute.service on boot
+Before=network-pre.target smcroute.service
+Wants=network-pre.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/tmp
+ExecStart=/bin/systemctl disable smcroute.service
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target

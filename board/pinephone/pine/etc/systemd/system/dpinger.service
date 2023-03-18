@@ -1,0 +1,13 @@
+[Unit]
+Description=dpinger for wg0 (server mode, just monitoring)
+After=multi-user.target ui.service
+Requires=sys-devices-virtual-net-wg0.device
+
+[Service]
+Type=forking
+WorkingDirectory=/opt/tunnel/
+KillMode=process
+ExecStart=/bin/dpinger -s 2000 -r 5000  10.0.0.1 -o /tmp/network
+Restart=always
+RestartSec=1
+TimeoutStartSec=5

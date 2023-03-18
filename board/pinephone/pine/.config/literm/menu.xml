@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<userMenu>
+    <item>
+        <title>Max brightness</title>
+        <command>echo 1000 > /sys/class/backlight/backlight/brightness\r</command>
+    </item>
+    <item>
+        <title>LTE Connect</title>
+        <command>/root/utils/lte-connect.sh\r</command>
+    </item>
+
+    <item>
+        <title>PineRouter</title>
+        <command>pinerouter-ui -platform wayland-egl\r</command>
+    </item>
+
+
+    <item>
+        <title>Ctrl-C</title>
+        <command>\x03</command>
+    </item>
+</userMenu>

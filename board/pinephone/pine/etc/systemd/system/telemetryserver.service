@@ -1,0 +1,12 @@
+[Unit]
+Description=Telemetry server
+After=multi-user.target ui.service
+
+[Service]
+WorkingDirectory=/opt/tunnel
+KillMode=process
+ExecStart=/bin/telemetryserver -i /opt/tunnel/telemetryserver.ini
+Restart=always
+RestartSec=2
+TimeoutStartSec=5
+

@@ -1,0 +1,12 @@
+[Unit]
+Description=vault pin code ui
+After=multi-user.target
+Before=ui.service 
+
+[Service]
+WorkingDirectory=/tmp
+Type=oneshot
+ExecStart=/bin/qml-july-02 vault
+
+[Install]
+WantedBy=multi-user.target

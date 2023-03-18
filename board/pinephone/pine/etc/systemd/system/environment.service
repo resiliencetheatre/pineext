@@ -1,0 +1,9 @@
+[Unit]
+Description=environment logger for debug
+After=multi-user.target
+
+[Service]
+Type=simple
+WorkingDirectory=/tmp
+ExecStart=/root/utils/batlog.sh
+

@@ -1,0 +1,5 @@
+config BR2_PACKAGE_TELEMETRYMSG
+        bool "telemetrymsg"
+        select BR2_PACKAGE_LIBCURL
+        help 
+              FIFO to TCP socket msg
