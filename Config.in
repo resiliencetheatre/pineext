@@ -7,6 +7,7 @@ menu "OOB Comm packages"
 	source "$BR2_EXTERNAL_pinephone_PATH/package/audiostreamer/Config.in"
 	source "$BR2_EXTERNAL_pinephone_PATH/package/telemetrymsg/Config.in"
 	source "$BR2_EXTERNAL_pinephone_PATH/package/userinterface/Config.in"
+	source "$BR2_EXTERNAL_pinephone_PATH/package/oobuivertical/Config.in"
 	source "$BR2_EXTERNAL_pinephone_PATH/package/pptk/Config.in"
 	source "$BR2_EXTERNAL_pinephone_PATH/package/udpproxy/Config.in"
 endmenu
