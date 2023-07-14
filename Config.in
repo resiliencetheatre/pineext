@@ -10,5 +10,7 @@ menu "OOB Comm packages"
 	source "$BR2_EXTERNAL_pinephone_PATH/package/oobuivertical/Config.in"
 	source "$BR2_EXTERNAL_pinephone_PATH/package/pptk/Config.in"
 	source "$BR2_EXTERNAL_pinephone_PATH/package/udpproxy/Config.in"
+	source "$BR2_EXTERNAL_pinephone_PATH/package/udp2raw/Config.in"
+	source "$BR2_EXTERNAL_pinephone_PATH/package/rtptun/Config.in"
 endmenu
 
