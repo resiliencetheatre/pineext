@@ -6,7 +6,7 @@ Before=ui.service
 [Service]
 WorkingDirectory=/tmp
 Type=oneshot
-ExecStart=/bin/qml-july-02 vault
+ExecStart=/bin/oobcomm vault
 
 [Install]
 WantedBy=multi-user.target
