@@ -9,5 +9,5 @@ WorkingDirectory=/opt/tunnel/
 KillMode=process
 ExecStart=/bin/dpinger -s 2000 -r 5000  10.0.0.1 -o /tmp/network
 Restart=always
-RestartSec=1
+RestartSec=5
 TimeoutStartSec=5
