@@ -43,6 +43,8 @@ fi
 #
 # Hotswap vs open vault
 #
+# NOTE: Hotswap is not yet implemented
+#
 
 if [ -e /tmp/vault/sinm.ini ]
 then
@@ -96,7 +98,15 @@ fi
 #
 VAULT_INDEX=$2
 echo $1 | sha256sum | cut -d" " -f1 > /tmp/vaultkey
-/sbin/cryptsetup luksOpen --key-file /tmp/vaultkey /mnt/vault_${VAULT_INDEX} volume1 && echo -n "Valid pin!"
+/sbin/cryptsetup luksOpen --key-file /tmp/vaultkey /mnt/vault_${VAULT_INDEX} volume1
+
+#
+# Evaluate cryptsetup return value, do not output anything if failed.
+#
+
+if [ $? -eq 0 ]; 
+then
+echo "Valid pin!" 
 rm /tmp/vaultkey
 
 #
@@ -110,7 +120,7 @@ mount /dev/mapper/volume1 /tmp/vault
 cp /opt/tunnel/network-configurations/wg0.* /etc/systemd/network/
 cp /opt/tunnel/service-files/* /etc/systemd/system/
 cp /opt/tunnel/wgcap_service.conf /opt/wgcap
-ln -s /etc/systemd/system/rtptun.service /etc/systemd/system/multi-user
+ln -s /etc/systemd/system/rtptun.service /etc/systemd/system/multi-user.target.wants
 cp /etc/ringtone.wav /opt/tunnel/ringtone.wav
 
 #
@@ -127,3 +137,8 @@ sleep 1
 #
 systemctl start ui
 exit 0
+
+else
+ exit 2
+fi
+
