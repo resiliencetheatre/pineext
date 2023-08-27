@@ -40,6 +40,7 @@ then
 fi
 
 
+
 #
 # Hotswap vs open vault
 #
@@ -122,6 +123,30 @@ cp /opt/tunnel/service-files/* /etc/systemd/system/
 cp /opt/tunnel/wgcap_service.conf /opt/wgcap
 ln -s /etc/systemd/system/rtptun.service /etc/systemd/system/multi-user.target.wants
 cp /etc/ringtone.wav /opt/tunnel/ringtone.wav
+
+#
+# 
+#
+if [ ! -d "/tmp/vault/iwd" ];
+then
+ mkdir /tmp/vault/iwd
+fi
+
+#
+# Copy wlan connections
+#
+cp /tmp/vault/iwd/* /var/lib/iwd/
+
+#
+# Restart iwd for new connections
+#
+systemctl restart iwd
+sleep 1
+
+#
+# Activate iwd
+# 
+/usr/bin/iwctl station list > /dev/null 2>&1
 
 #
 # Reload systemd
