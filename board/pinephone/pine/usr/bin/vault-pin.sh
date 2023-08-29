@@ -154,6 +154,16 @@ sleep 1
 systemctl daemon-reload
 # NOTE: Adjust this based on your primary tunneling.
 systemctl start rtptun
+systemctl start peer0.service
+systemctl start peer1.service
+systemctl start peer2.service
+systemctl start peer3.service
+systemctl start peer4.service
+systemctl start peer5.service
+systemctl start peer6.service
+systemctl start peer7.service
+systemctl start peer8.service
+systemctl start peer9.service
 systemctl restart systemd-networkd
 sleep 1
 
